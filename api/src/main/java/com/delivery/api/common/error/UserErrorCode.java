@@ -2,7 +2,6 @@ package com.delivery.api.common.error;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import org.springframework.http.HttpStatus;
 /*
 * User의 경우 1000번대 에러코드 사용
 * */
