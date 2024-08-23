@@ -33,7 +33,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(authorizationInterceptor)   // 인터셉터 등록
+        registry.addInterceptor(authorizationInterceptor)   // 인터셉터 등록, 로그인 된 사용자만 체크한다.
                 .excludePathPatterns(OPEN_API)
                 .excludePathPatterns(DEFAULT_EXCLUDE)
                 .excludePathPatterns(SWAGGER);
