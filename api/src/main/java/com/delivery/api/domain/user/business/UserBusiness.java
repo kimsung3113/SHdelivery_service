@@ -7,9 +7,13 @@ import com.delivery.api.domain.user.controller.model.UserLoginRequest;
 import com.delivery.api.domain.user.controller.model.UserRegisterRequest;
 import com.delivery.api.domain.user.controller.model.UserResponse;
 import com.delivery.api.domain.user.converter.UserConverter;
+import com.delivery.api.domain.user.model.User;
 import com.delivery.api.domain.user.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
 
+import java.util.Objects;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -54,5 +58,10 @@ public class UserBusiness {
         var tokenResponse = tokenBusiness.issueToken(userEntity);
         return tokenResponse;
 
+    }
+
+    public UserResponse me(User user) {
+        var response = userConverter.toResponse(user);
+        return response;
     }
 }

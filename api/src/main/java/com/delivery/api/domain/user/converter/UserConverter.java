@@ -5,6 +5,7 @@ import com.delivery.api.common.error.ErrorCode;
 import com.delivery.api.common.exception.ApiException;
 import com.delivery.api.domain.user.controller.model.UserRegisterRequest;
 import com.delivery.api.domain.user.controller.model.UserResponse;
+import com.delivery.api.domain.user.model.User;
 import com.delivery.db.user.UserEntity;
 import lombok.RequiredArgsConstructor;
 
@@ -48,4 +49,20 @@ public class UserConverter {
                 }).orElseThrow(() -> new ApiException(ErrorCode.NULL_POINT, "UserEntity is Null"));
 
     }
+
+    // RequestContext에서 entity 가져올때 에러 throw를 해서 여기에는 null체크를 안했다.
+    public UserResponse toResponse(User user) {
+        return UserResponse.builder()
+                .id(user.getId())
+                .name(user.getName())
+                .status(user.getStatus())
+                .email(user.getEmail())
+                .address(user.getAddress())
+                .registeredAt(user.getRegisteredAt())
+                .unregisteredAt(user.getUnregisteredAt())
+                .lastLoginAt(user.getLastLoginAt())
+                .build();
+    }
+
+
 }

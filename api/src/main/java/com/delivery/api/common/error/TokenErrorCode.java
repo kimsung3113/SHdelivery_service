@@ -12,6 +12,7 @@ public enum TokenErrorCode implements ErrorCodeIfs{
     INVALID_TOKEN(400, 2000, "Invalid Token"),
     EXPIRED_TOKEN(400, 2001, "Token has expired"),
     TOKEN_EXCEPTION(400, 2002, "Unknown Token Error"),
+    AUTHORIZATION_TOKEN_NOT_FOUND(400, 2003, "Authorization Token Not Found"),
     ;
 
     // 변형이 일어나면 안되니 모두 final로 선언해 변경되지 않는 값으로 초기화.
