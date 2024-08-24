@@ -14,8 +14,6 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
 
-import java.util.Objects;
-
 @Component
 @RequiredArgsConstructor
 public class UserSessionResolver implements HandlerMethodArgumentResolver {

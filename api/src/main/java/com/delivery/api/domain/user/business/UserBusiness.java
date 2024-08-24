@@ -10,11 +10,6 @@ import com.delivery.api.domain.user.converter.UserConverter;
 import com.delivery.api.domain.user.model.User;
 import com.delivery.api.domain.user.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.context.request.RequestAttributes;
-import org.springframework.web.context.request.RequestContextHolder;
-
-import java.util.Objects;
-import java.util.Optional;
 
 @RequiredArgsConstructor
 @Business
