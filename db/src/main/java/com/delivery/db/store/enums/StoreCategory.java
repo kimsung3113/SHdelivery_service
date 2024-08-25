@@ -23,6 +23,6 @@ public enum StoreCategory {
     COFFEE_TEA("커피&차", "커피&차")
     ;
 
-    private String display;
-    private String description;
+    private final String display;
+    private final String description;
 }
