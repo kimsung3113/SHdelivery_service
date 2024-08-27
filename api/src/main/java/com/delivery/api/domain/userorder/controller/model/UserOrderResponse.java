@@ -1,9 +1,6 @@
 package com.delivery.api.domain.userorder.controller.model;
 
 import com.delivery.db.userorder.enums.UserOrderStatus;
-import jakarta.persistence.Column;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
