@@ -29,21 +29,13 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
                 .csrf((csrf) -> csrf.disable())  // CSRF 보호 비활성화
-                .authorizeHttpRequests(it -> {
-                    it
-                            .requestMatchers(
-                                    PathRequest.toStaticResources().atCommonLocations()
-                            ).permitAll()   // resource에 대해서는 모든 요청 허용
-
+                .authorizeHttpRequests(auth -> {
+                    auth
+                            .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()   // resource에 대해서는 모든 요청 허용
                             // swagger는 인증 없이 통과
-                            .requestMatchers(
-                                    SWAGGER.toArray(new String[0])
-                            ).permitAll()
-
+                            .requestMatchers(SWAGGER.toArray(new String[0])).permitAll()
                             // open-api / ** 하위 모든 주소는 인증 없이 통과
-                            .requestMatchers(
-                                    "/open-api/**"
-                            ).permitAll()
+                            .requestMatchers("/open-api/**").permitAll()
 
                             // 그 외 모든 요청은 인증 사용
                             .anyRequest().authenticated()
