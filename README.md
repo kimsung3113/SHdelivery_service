@@ -25,4 +25,5 @@
 
 </br>
 
-https://github.com/user-attachments/assets/5a093bb2-5b19-4e3c-a648-45a73ac663b1
+## 3. 시스템 아키텍쳐
+![image](https://github.com/user-attachments/assets/5a093bb2-5b19-4e3c-a648-45a73ac663b1)
