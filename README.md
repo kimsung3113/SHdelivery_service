@@ -6,6 +6,8 @@
 </br>
 
 ## 2. 사용 기술
+#### `Tools`
+  - IntelliJ
 #### `Framework`
   - Spring Boot 3.3.2
 #### `language`
