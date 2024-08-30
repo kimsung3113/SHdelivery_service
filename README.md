@@ -22,6 +22,7 @@
 #### `Back-end`
   - Spring Security
   - Jwt token
+  - RabbitMQ
 #### `Front-end`
   - thymeleaf
 
