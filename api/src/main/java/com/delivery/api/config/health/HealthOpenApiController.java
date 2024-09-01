@@ -1,6 +1,5 @@
 package com.delivery.api.config.health;
 
-import com.delivery.api.common.rabbitmq.Producer;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
