@@ -1,16 +1,16 @@
 package com.delivery.api.domain.token.converter;
 
-import com.delivery.api.common.annotation.Converter;
 import com.delivery.api.common.error.ErrorCode;
 import com.delivery.api.common.exception.ApiException;
 import com.delivery.api.domain.token.controller.model.TokenResponse;
 import com.delivery.api.domain.token.model.TokenDto;
+import com.delivery.common.annotation.Converter;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Objects;
 
-@RequiredArgsConstructor
 @Converter
+@RequiredArgsConstructor
 public class TokenConverter {
 
     public TokenResponse toResponse(

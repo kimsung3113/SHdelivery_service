@@ -1,18 +1,18 @@
 package com.delivery.api.domain.user.converter;
 
-import com.delivery.api.common.annotation.Converter;
 import com.delivery.api.common.error.ErrorCode;
 import com.delivery.api.common.exception.ApiException;
 import com.delivery.api.domain.user.controller.model.UserRegisterRequest;
 import com.delivery.api.domain.user.controller.model.UserResponse;
 import com.delivery.api.domain.user.model.User;
+import com.delivery.common.annotation.Converter;
 import com.delivery.db.user.UserEntity;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Optional;
 
-@RequiredArgsConstructor
 @Converter
+@RequiredArgsConstructor
 public class UserConverter {
 
     public UserEntity toEntity(UserRegisterRequest request){

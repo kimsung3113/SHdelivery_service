@@ -1,10 +1,10 @@
 package com.delivery.api.domain.store.converter;
 
-import com.delivery.api.common.annotation.Converter;
 import com.delivery.api.common.error.ErrorCode;
 import com.delivery.api.common.exception.ApiException;
 import com.delivery.api.domain.store.controller.model.StoreRegisterRequest;
 import com.delivery.api.domain.store.controller.model.StoreResponse;
+import com.delivery.common.annotation.Converter;
 import com.delivery.db.store.StoreEntity;
 
 import java.util.Optional;

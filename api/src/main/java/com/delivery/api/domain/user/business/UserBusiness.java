@@ -1,6 +1,5 @@
 package com.delivery.api.domain.user.business;
 
-import com.delivery.api.common.annotation.Business;
 import com.delivery.api.domain.token.business.TokenBusiness;
 import com.delivery.api.domain.token.controller.model.TokenResponse;
 import com.delivery.api.domain.user.controller.model.UserLoginRequest;
@@ -9,10 +8,11 @@ import com.delivery.api.domain.user.controller.model.UserResponse;
 import com.delivery.api.domain.user.converter.UserConverter;
 import com.delivery.api.domain.user.model.User;
 import com.delivery.api.domain.user.service.UserService;
+import com.delivery.common.annotation.Business;
 import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
 @Business
+@RequiredArgsConstructor
 public class UserBusiness {
 
     private final UserService userService;

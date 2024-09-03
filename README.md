@@ -29,5 +29,5 @@
 </br>
 
 ## 3. 시스템 아키텍쳐 🔥
-![image](https://github.com/user-attachments/assets/5a093bb2-5b19-4e3c-a648-45a73ac663b1)
+![image](https://github.com/user-attachments/assets/7c9300c6-903a-4d21-9291-71c9426a771e)
 

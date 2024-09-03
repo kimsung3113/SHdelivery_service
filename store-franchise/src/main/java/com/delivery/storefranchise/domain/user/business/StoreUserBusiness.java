@@ -1,5 +1,6 @@
 package com.delivery.storefranchise.domain.user.business;
 
+import com.delivery.common.annotation.Business;
 import com.delivery.db.store.StoreRepository;
 import com.delivery.db.store.enums.StoreStatus;
 import com.delivery.storefranchise.domain.user.controller.model.StoreUserRegisterRequest;
@@ -9,7 +10,7 @@ import com.delivery.storefranchise.domain.user.service.StoreUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-@Service
+@Business
 @RequiredArgsConstructor
 public class StoreUserBusiness {
 

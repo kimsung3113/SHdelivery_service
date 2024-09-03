@@ -1,7 +1,6 @@
 package com.delivery.storefranchise.domain.sse.connection.model;
 
 import com.delivery.storefranchise.domain.sse.connection.ifs.ConnectionPoolIfs;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.*;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
