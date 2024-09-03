@@ -8,7 +8,6 @@ import com.delivery.storefranchise.domain.user.controller.model.StoreUserRespons
 import com.delivery.storefranchise.domain.user.converter.StoreUserConverter;
 import com.delivery.storefranchise.domain.user.service.StoreUserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 
 @Business
 @RequiredArgsConstructor

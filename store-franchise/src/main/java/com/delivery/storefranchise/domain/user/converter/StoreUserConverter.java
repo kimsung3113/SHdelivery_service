@@ -2,14 +2,12 @@ package com.delivery.storefranchise.domain.user.converter;
 
 import com.delivery.common.annotation.Converter;
 import com.delivery.db.store.StoreEntity;
-import com.delivery.db.store.StoreRepository;
-import com.delivery.db.store.enums.StoreStatus;
 import com.delivery.db.storeuser.StoreUserEntity;
 import com.delivery.storefranchise.domain.authorization.model.UserSession;
 import com.delivery.storefranchise.domain.user.controller.model.StoreUserRegisterRequest;
 import com.delivery.storefranchise.domain.user.controller.model.StoreUserResponse;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
+
 
 @Converter
 @RequiredArgsConstructor
