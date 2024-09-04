@@ -11,7 +11,6 @@ import com.delivery.storefranchise.domain.userorder.service.UserOrderService;
 import com.delivery.storefranchise.domain.userordermenu.service.UserOrderMenuService;
 import lombok.RequiredArgsConstructor;
 
-import java.util.stream.Collectors;
 
 @Business
 @RequiredArgsConstructor
@@ -35,8 +34,6 @@ public class UserOrderBusiness {
     *   push
     * */
     public void pushUserOrder(UserOrderMessage userOrderMessage) {
-
-        // TODO Api spec 맞춰주기
 
         var userOrderEntity = userOrderService.getUserOrder(userOrderMessage.getUserOrderId())
                 .orElseThrow(() -> new RuntimeException("User order not found"));

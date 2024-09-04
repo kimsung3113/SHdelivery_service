@@ -18,7 +18,7 @@ import java.util.List;
 public class SecurityConfig {
 
     // SWAGGER는 들어 갈 수 있게 제외한다.
-    private List<String> SWAGGER = List.of(
+    private final List<String> SWAGGER = List.of(
             "/swagger-ui.html",
             "/swagger-ui/**",
             "/v3/api-docs/**"
