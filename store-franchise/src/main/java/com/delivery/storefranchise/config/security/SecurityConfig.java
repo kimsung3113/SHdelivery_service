@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 
 import java.util.List;
 
@@ -27,8 +28,12 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
+
+        HttpSessionRequestCache requestCache = new HttpSessionRequestCache();
+        requestCache.setMatchingRequestParameterName(null);
         httpSecurity
                 .csrf((csrf) -> csrf.disable())  // CSRF 보호 비활성화
+                .requestCache(request -> request.requestCache(requestCache)) // URL 뒤의 /?continue test중이니 임의로 없앤다.
                 .authorizeHttpRequests(auth -> {
                     auth
                             .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()   // resource에 대해서는 모든 요청 허용

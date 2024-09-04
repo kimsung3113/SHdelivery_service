@@ -1,8 +1,8 @@
-package com.delivery.storefranchise.domain.user.controller;
+package com.delivery.storefranchise.domain.storeuser.controller;
 
 import com.delivery.storefranchise.domain.authorization.model.UserSession;
-import com.delivery.storefranchise.domain.user.controller.model.StoreUserResponse;
-import com.delivery.storefranchise.domain.user.converter.StoreUserConverter;
+import com.delivery.storefranchise.domain.storeuser.controller.model.StoreUserResponse;
+import com.delivery.storefranchise.domain.storeuser.converter.StoreUserConverter;
 import io.swagger.v3.oas.annotations.Parameter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;

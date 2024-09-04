@@ -1,12 +1,12 @@
-package com.delivery.storefranchise.domain.user.business;
+package com.delivery.storefranchise.domain.storeuser.business;
 
 import com.delivery.common.annotation.Business;
 import com.delivery.db.store.StoreRepository;
 import com.delivery.db.store.enums.StoreStatus;
-import com.delivery.storefranchise.domain.user.controller.model.StoreUserRegisterRequest;
-import com.delivery.storefranchise.domain.user.controller.model.StoreUserResponse;
-import com.delivery.storefranchise.domain.user.converter.StoreUserConverter;
-import com.delivery.storefranchise.domain.user.service.StoreUserService;
+import com.delivery.storefranchise.domain.storeuser.controller.model.StoreUserRegisterRequest;
+import com.delivery.storefranchise.domain.storeuser.controller.model.StoreUserResponse;
+import com.delivery.storefranchise.domain.storeuser.converter.StoreUserConverter;
+import com.delivery.storefranchise.domain.storeuser.service.StoreUserService;
 import lombok.RequiredArgsConstructor;
 
 @Business

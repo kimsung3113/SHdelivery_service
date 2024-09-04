@@ -58,7 +58,7 @@ public class UserSseConnection {
         return new UserSseConnection(uniqueKey, connectionPoolIfs,objectMapper);
     }
 
-    public void sendMessage(String eventName, String data){
+    public void sendMessage(String eventName, Object data){
 
         try{
             var json = this.objectMapper.writeValueAsString(data);
@@ -73,7 +73,7 @@ public class UserSseConnection {
         }
     }
 
-    public void sendMessage(String data){
+    public void sendMessage(Object data){
 
         try{
             var json = this.objectMapper.writeValueAsString(data);

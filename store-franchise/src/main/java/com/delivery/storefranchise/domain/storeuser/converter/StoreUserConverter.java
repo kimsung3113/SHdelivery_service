@@ -1,11 +1,11 @@
-package com.delivery.storefranchise.domain.user.converter;
+package com.delivery.storefranchise.domain.storeuser.converter;
 
 import com.delivery.common.annotation.Converter;
 import com.delivery.db.store.StoreEntity;
 import com.delivery.db.storeuser.StoreUserEntity;
 import com.delivery.storefranchise.domain.authorization.model.UserSession;
-import com.delivery.storefranchise.domain.user.controller.model.StoreUserRegisterRequest;
-import com.delivery.storefranchise.domain.user.controller.model.StoreUserResponse;
+import com.delivery.storefranchise.domain.storeuser.controller.model.StoreUserRegisterRequest;
+import com.delivery.storefranchise.domain.storeuser.controller.model.StoreUserResponse;
 import lombok.RequiredArgsConstructor;
 
 

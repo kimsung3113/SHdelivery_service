@@ -1,4 +1,4 @@
-package com.delivery.storefranchise.domain.user.controller.model;
+package com.delivery.storefranchise.domain.storeuser.controller.model;
 
 import com.delivery.db.storeuser.enums.StoreUserRole;
 import com.delivery.db.storeuser.enums.StoreUserStatus;
