@@ -19,9 +19,9 @@ public class AuthorizationService implements UserDetailsService {
     private final StoreRepository storeRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
-        var storeUserEntity = storeUserService.getRegisterUser(username);
+        var storeUserEntity = storeUserService.getRegisterUser(email);
 
         var storeEntity = storeRepository.findFirstByIdAndStatusOrderByIdDesc(
                 storeUserEntity.get().getStoreId(), StoreStatus.REGISTERED);
@@ -44,7 +44,7 @@ public class AuthorizationService implements UserDetailsService {
 
             return userSession;
         })
-        .orElseThrow(() -> new UsernameNotFoundException(username));
+        .orElseThrow(() -> new UsernameNotFoundException(email));
 
     }
 }

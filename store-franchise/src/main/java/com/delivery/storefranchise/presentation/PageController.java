@@ -38,4 +38,9 @@ public class PageController {
         return new ModelAndView("/order/order");
     }
 
+    @RequestMapping("/login")
+    public ModelAndView login(){
+        return new ModelAndView("/login/login");
+    }
+
 }

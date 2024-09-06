@@ -31,3 +31,22 @@
 ## 3. 시스템 아키텍쳐 🔥
 ![image](https://github.com/user-attachments/assets/7c9300c6-903a-4d21-9291-71c9426a771e)
 
+</br>
+
+
+## 4. 핵심 기능
+<details>
+<summary><b>핵심 기능 설명 펼치기</b></summary>
+<div markdown="1">
+
+### 회원 order API 호출
+![SwaggerUI-Chrome2024-09-0614-18-57-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/0f014d7e-d4c6-475d-b45e-351bd13e679d)
+
+### Security로 로그인 후 SSE로 가맹점에게 전달
+![Pleasesignin-Chrome2024-09-0614-22-31-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/cccf2488-d5d9-432c-8f87-017320893024)
+
+
+</div>
+</details>
+
+</br>

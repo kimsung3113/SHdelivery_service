@@ -24,7 +24,7 @@ public class StoreUserEntity extends BaseEntity {
     @Column(nullable = false)
     private Long storeId;
 
-    @Column(length = 100, nullable = false)
+    @Column(length = 100, unique = true, nullable = false)
     private String email;
 
     @Column(length = 100, nullable = false)
