@@ -39,10 +39,10 @@
 <summary><b>핵심 기능 설명 펼치기</b></summary>
 <div markdown="1">
 
-### 회원 order API 호출
+### 회원 order API 호출 후 Producer로 Queue 삽입
 ![SwaggerUI-Chrome2024-09-0614-18-57-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/0f014d7e-d4c6-475d-b45e-351bd13e679d)
 
-### Security로 로그인 후 SSE로 가맹점에게 전달
+### Security로 로그인 후 위의 Order API를 호출했을 시 Consumer로 받고 SSE로 가맹점 브라우저에 전달
 ![Pleasesignin-Chrome2024-09-0614-22-31-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/cccf2488-d5d9-432c-8f87-017320893024)
 
 
