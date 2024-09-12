@@ -38,6 +38,18 @@ public class StoreUserEntity extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private StoreUserRole role;
 
+    /* JWT 토큰 추가 */
+    @Column(length = 1000)
+    private String refreshToken;
+
+    public void updateRefreshToken(String refreshToken) {
+        this.refreshToken = refreshToken;
+    }
+
+    public void destroyRefreshToken() {
+        this.refreshToken = null;
+    }
+
     private LocalDateTime registeredAt;
 
     private LocalDateTime unregisteredAt;

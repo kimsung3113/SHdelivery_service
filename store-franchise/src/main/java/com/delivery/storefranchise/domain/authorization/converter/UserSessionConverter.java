@@ -1,39 +1,37 @@
-package com.delivery.storefranchise.domain.authorization;
+package com.delivery.storefranchise.domain.authorization.converter;
 
+import com.delivery.common.annotation.Converter;
 import com.delivery.db.store.StoreRepository;
 import com.delivery.db.store.enums.StoreStatus;
 import com.delivery.storefranchise.domain.authorization.model.UserSession;
 import com.delivery.storefranchise.domain.storeuser.service.StoreUserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
+@Converter
 @RequiredArgsConstructor
-@Service
-public class AuthorizationService implements UserDetailsService {
+public class UserSessionConverter {
 
     private final StoreUserService storeUserService;
-
     private final StoreRepository storeRepository;
 
-    @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+    public Optional<UserSession> toUserSession(String email){
 
         var storeUserEntity = storeUserService.getRegisterUser(email);
 
         var storeEntity = storeRepository.findFirstByIdAndStatusOrderByIdDesc(
                 storeUserEntity.get().getStoreId(), StoreStatus.REGISTERED);
 
-        return storeUserEntity.map(it -> {
+        var userSession = storeUserEntity.map(it -> {
 
-            var userSession = UserSession.builder()
+            var user = UserSession.builder()
                     .userId(it.getId())
                     .password(it.getPassword())
                     .email(it.getEmail())
                     .status(it.getStatus())
                     .role(it.getRole())
+                    .refreshToken(it.getRefreshToken())
                     .registeredAt(it.getRegisteredAt())
                     .unregisteredAt(it.getUnregisteredAt())
                     .lastLoginAt(it.getLastLoginAt())
@@ -41,10 +39,12 @@ public class AuthorizationService implements UserDetailsService {
                     .storeId(storeEntity.get().getId())
                     .storeName(storeEntity.get().getName())
                     .build();
+            return user;
+        });
 
-            return userSession;
-        })
-        .orElseThrow(() -> new UsernameNotFoundException(email));
-
+        return userSession;
     }
 }
+
+
+

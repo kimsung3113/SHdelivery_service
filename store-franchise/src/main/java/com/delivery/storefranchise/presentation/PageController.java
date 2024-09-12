@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Slf4j
 public class PageController {
 
-    @RequestMapping(path = {"/", "", "main"})
+    @RequestMapping(path = {"main"})
     public ModelAndView mainPage() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 

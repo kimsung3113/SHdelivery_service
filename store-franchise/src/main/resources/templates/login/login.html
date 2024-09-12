@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
 </head>
 
 <style>
@@ -82,7 +83,7 @@
 
 </body>
 
-<!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
   $(function () {
     $('#login-btn').on('click', function () {
@@ -94,7 +95,7 @@
         method: 'POST',
         contentType: 'application/json', // JSON 형식으로 데이터 전송
         // dataType: 'json', // 받아오는 데이터 타입을 JSON으로 설정
-        data: JSON.stringify({ id: username, password: password }), // 데이터를 JSON 문자열로 변환하여 전송
+        data: JSON.stringify({ email: username, password: password }), // 데이터를 JSON 문자열로 변환하여 전송
         success: function(response){
           console.log(response)
         },
@@ -109,5 +110,5 @@
     });
   });
 
-</script>-->
+</script>
 </html>

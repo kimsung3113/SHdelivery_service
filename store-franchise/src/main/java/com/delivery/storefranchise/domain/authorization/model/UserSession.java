@@ -34,6 +34,8 @@ public class UserSession implements UserDetails {
 
     private StoreUserRole role;
 
+    private String refreshToken;
+
     private LocalDateTime registeredAt;
 
     private LocalDateTime unregisteredAt;

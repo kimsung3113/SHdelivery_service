@@ -5,6 +5,9 @@ spring:
   application:
     name: store-franchise
 
+  profiles:
+    include: jwt #jwt.yaml 불러오기
+
   rabbitmq:
     host: localhost
     port: 5672
