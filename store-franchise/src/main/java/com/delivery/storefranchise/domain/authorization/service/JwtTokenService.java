@@ -2,8 +2,6 @@ package com.delivery.storefranchise.domain.authorization.service;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
-import com.delivery.db.storeuser.StoreUserRepository;
-import com.delivery.db.storeuser.enums.StoreUserStatus;
 import com.delivery.storefranchise.domain.authorization.ifs.JwtTokenIfs;
 import com.delivery.storefranchise.domain.storeuser.service.StoreUserService;
 import com.fasterxml.jackson.databind.ObjectMapper;

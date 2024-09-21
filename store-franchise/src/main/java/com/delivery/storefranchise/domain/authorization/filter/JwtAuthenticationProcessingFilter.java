@@ -1,8 +1,6 @@
 package com.delivery.storefranchise.domain.authorization.filter;
 
 import com.delivery.db.storeuser.StoreUserEntity;
-import com.delivery.db.storeuser.StoreUserRepository;
-import com.delivery.db.storeuser.enums.StoreUserStatus;
 import com.delivery.storefranchise.domain.authorization.converter.UserSessionConverter;
 import com.delivery.storefranchise.domain.authorization.ifs.JwtTokenIfs;
 import com.delivery.storefranchise.domain.authorization.model.UserSession;
@@ -29,9 +27,10 @@ public class JwtAuthenticationProcessingFilter extends OncePerRequestFilter {
     private final JwtTokenIfs jwtTokenService;
     private final UserSessionConverter userSessionConverter;
 
-    private GrantedAuthoritiesMapper authoritiesMapper = new NullAuthoritiesMapper();//5
+    private final GrantedAuthoritiesMapper authoritiesMapper = new NullAuthoritiesMapper();//5
 
-    private final String NO_CHECK_URL = "/login";//1
+    // /open-api/auth/login, /open-api/store-user
+    private final String NO_CHECK_URL = "/open-api/auth/login";//1
 
     /**
      * 1. 리프레시 토큰이 오는 경우 -> 유효하면 AccessToken 재발급후, 필터 진행 X, 바로 튕기기
@@ -41,6 +40,7 @@ public class JwtAuthenticationProcessingFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         if(request.getRequestURI().equals(NO_CHECK_URL)) {
+            System.out.println("JwtAuthenticationProcessingFilter doFilterInternal메서드");
             filterChain.doFilter(request, response);
             return;//안해주면 아래로 내려가서 계속 필터를 진행하게됨
         }

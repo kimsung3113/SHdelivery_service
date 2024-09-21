@@ -8,6 +8,7 @@ import org.springframework.security.authentication.AuthenticationServiceExceptio
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.util.StreamUtils;
@@ -18,7 +19,7 @@ import java.util.Map;
 
 public class JsonUsernamePasswordAuthenticationFilter extends AbstractAuthenticationProcessingFilter {
 
-    private static final String DEFAULT_LOGIN_REQUEST_URL = "/login";  // /login/oauth2/ + ????? 로 오는 요청을 처리할 것이다
+    private static final String DEFAULT_LOGIN_REQUEST_URL = "/open-api/auth/login";  // /login/oauth2/ + ????? 로 오는 요청을 처리할 것이다
     private static final String HTTP_METHOD = "POST";    //HTTP 메서드의 방식은 POST 이다.
     private static final String CONTENT_TYPE = "application/json";//json 타입의 데이터로만 로그인을 진행한다.
     private static final String USERNAME_KEY="email";
@@ -42,12 +43,17 @@ public class JsonUsernamePasswordAuthenticationFilter extends AbstractAuthentica
             throw new AuthenticationServiceException("Authentication Content-Type not supported: " + request.getContentType());
         }
 
+
         String messageBody = StreamUtils.copyToString(request.getInputStream(), StandardCharsets.UTF_8);
 
         Map<String, String> usernamePasswordMap = objectMapper.readValue(messageBody, Map.class);
 
         String username = usernamePasswordMap.get(USERNAME_KEY);
         String password = usernamePasswordMap.get(PASSWORD_KEY);
+
+        // 여기서 값이 넘어오는 것 확인했으니 password encode해서 보내본다? 그렇게 해도 똑같다. 이게 문제가 아님.
+        System.out.println("attemptAuthentication email !!!!!!!!!!!!!!!!!!!!!!!!!!!! : " + username);
+        System.out.println("attemptAuthentication password !!!!!!!!!!!!!!!!!!!!!!!!!!!! : " + password);
 
         UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(username, password);//principal 과 credentials 전달
 

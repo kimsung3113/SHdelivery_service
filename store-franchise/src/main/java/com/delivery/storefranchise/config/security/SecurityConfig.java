@@ -1,6 +1,5 @@
 package com.delivery.storefranchise.config.security;
 
-import com.delivery.db.storeuser.StoreUserRepository;
 import com.delivery.storefranchise.domain.authorization.converter.UserSessionConverter;
 import com.delivery.storefranchise.domain.authorization.filter.JwtAuthenticationProcessingFilter;
 import com.delivery.storefranchise.domain.authorization.ifs.JwtTokenIfs;
@@ -69,7 +68,7 @@ public class SecurityConfig {
                             // swagger는 인증 없이 통과
                             .requestMatchers(SWAGGER.toArray(new String[0])).permitAll()
                             // open-api / ** 하위 모든 주소는 인증 없이 통과
-                            .requestMatchers("/open-api/**", "/login").permitAll()
+                            .requestMatchers("/open-api/**", "/login", "/open-api/auth/login", "/error").permitAll()
 
                             // 그 외 모든 요청은 인증 사용
                             .anyRequest().authenticated()
@@ -86,6 +85,12 @@ public class SecurityConfig {
         return httpSecurity.build();
     }
 
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        // 기본값은 bcrypt
+        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+    }
+
     // 인증 관리자 관련 설정
     @Bean
     public DaoAuthenticationProvider daoAuthenticationProvider() throws Exception {
@@ -95,12 +100,6 @@ public class SecurityConfig {
         daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());
 
         return daoAuthenticationProvider;
-    }
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        // 기본값은 bcrypt
-        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
 
     @Bean
@@ -131,7 +130,6 @@ public class SecurityConfig {
     @Bean
     public JwtAuthenticationProcessingFilter jwtAuthenticationProcessingFilter(){
 
-        // TODO Converter 말고 다른 곳에서 주입을 받지 않게 할 수 있는지 체크?
         JwtAuthenticationProcessingFilter jsonUsernamePasswordLoginFilter = new JwtAuthenticationProcessingFilter(
                 storeUserService, jwtTokenService, userSessionConverter);
 

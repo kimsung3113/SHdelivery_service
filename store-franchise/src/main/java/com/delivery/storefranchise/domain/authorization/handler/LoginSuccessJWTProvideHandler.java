@@ -1,8 +1,6 @@
 package com.delivery.storefranchise.domain.authorization.handler;
 
 
-import com.delivery.db.storeuser.StoreUserRepository;
-import com.delivery.db.storeuser.enums.StoreUserStatus;
 import com.delivery.storefranchise.domain.authorization.ifs.JwtTokenIfs;
 import com.delivery.storefranchise.domain.storeuser.service.StoreUserService;
 import jakarta.servlet.ServletException;
@@ -25,6 +23,8 @@ public class LoginSuccessJWTProvideHandler extends SimpleUrlAuthenticationSucces
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,  Authentication authentication) throws IOException, ServletException {
+
+        System.out.println("LoginSuccessJWTProvideHandler onAuthenticationSuccess메서드");
 
         String email = extractEmail(authentication);
         String accessToken = jwtTokenService.createAccessToken(email);

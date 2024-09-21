@@ -2,9 +2,6 @@ package com.delivery.storefranchise.domain.authorization.model;
 
 import com.delivery.db.storeuser.enums.StoreUserRole;
 import com.delivery.db.storeuser.enums.StoreUserStatus;
-import jakarta.persistence.Column;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

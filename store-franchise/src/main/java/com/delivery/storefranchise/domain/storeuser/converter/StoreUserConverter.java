@@ -7,14 +7,11 @@ import com.delivery.storefranchise.domain.authorization.model.UserSession;
 import com.delivery.storefranchise.domain.storeuser.controller.model.StoreUserRegisterRequest;
 import com.delivery.storefranchise.domain.storeuser.controller.model.StoreUserResponse;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 
 @Converter
 @RequiredArgsConstructor
 public class StoreUserConverter {
-
-    private final PasswordEncoder passwordEncoder;
 
     public StoreUserEntity toEntity(
             StoreUserRegisterRequest request,
@@ -25,7 +22,7 @@ public class StoreUserConverter {
         // Business에서 Converting 할 때 encode한 Password 집어넣는다.
         return StoreUserEntity.builder()
                 .email(request.getEmail())
-                .password(passwordEncoder.encode(request.getPassword()))
+                .password(request.getPassword())
                 .role(request.getRole())
                 .storeId(storeEntity.getId())     // TODO NULL일때 에러체크 확인 필요
                 .build();
