@@ -38,4 +38,14 @@ public class StoreBusiness {
 
     }
 
+    public void deleteStore(Long id){
+
+        // store 있는지 확인 or exception
+        var storeEntity = storeService.getStoreWithThrow(id);
+
+        // store 삭제
+        storeService.deleteStore(id);
+
+    }
+
 }

@@ -24,6 +24,6 @@ public interface StoreRepository extends JpaRepository<StoreEntity, Long> {
     // SELECT * FROM store WHERE name =? AND status = ? ORDER BY id DESC limit 1
     Optional<StoreEntity> findFirstByNameAndStatusOrderByIdDesc(String name, StoreStatus status);
 
-
+    void deleteByIdAndStatus(Long id, StoreStatus status);
 
 }

@@ -33,9 +33,12 @@ public class JwtAuthenticationProcessingFilter extends OncePerRequestFilter {
     private final String NO_CHECK_URL = "/open-api/auth/login";//1
 
     /**
-     * 1. 리프레시 토큰이 오는 경우 -> 유효하면 AccessToken 재발급후, 필터 진행 X, 바로 튕기기
+     * 3. 리프레시 토큰이 오는 경우 -> 유효하면 AccessToken 재발급후, 필터 진행 X, 바로 튕기기
      *
      * 2. 리프레시 토큰은 없고 AccessToken만 있는 경우 -> 유저정보 저장후 필터 계속 진행
+     *
+     * 4. Access 토큰이 유효하면 Access토큰으로 claim값 email을 찾아 User를 가져와 Authentication을 가진 SecurityContext
+     * 에 저장한 후 SecurityContextHolder에 set으로 저장한다.. => 필터 진행
      */
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
@@ -75,7 +78,7 @@ public class JwtAuthenticationProcessingFilter extends OncePerRequestFilter {
     }
 
 
-
+    // Security Context에 UserSession 객체 저장한다.
     private void saveAuthentication(StoreUserEntity storeUserEntity) {
 
         // TODO 여기서 UserSession 객체 만들어 줘야 된다. Converter나 여기 Null check 코드롤 넣거나 해야될 듯.
@@ -88,6 +91,7 @@ public class JwtAuthenticationProcessingFilter extends OncePerRequestFilter {
         SecurityContextHolder.setContext(context);
     }
 
+    // TODO Void 형식으로 accessToken만들어 Map에 넣기만 한다. return 시켜줘야될듯
     private void checkRefreshTokenAndReIssueAccessToken(HttpServletResponse response, String refreshToken) {
 
         System.out.println("refresh Token : " + refreshToken);

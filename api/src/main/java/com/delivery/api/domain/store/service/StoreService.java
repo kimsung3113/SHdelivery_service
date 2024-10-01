@@ -54,4 +54,9 @@ public class StoreService {
         return list;
     }
 
+    // Store 삭제
+    public void deleteStore(Long id){
+        storeRepository.deleteById(id);
+    }
+
 }

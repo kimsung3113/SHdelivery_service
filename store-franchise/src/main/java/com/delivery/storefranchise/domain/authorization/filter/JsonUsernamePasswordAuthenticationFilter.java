@@ -37,6 +37,7 @@ public class JsonUsernamePasswordAuthenticationFilter extends AbstractAuthentica
         this.objectMapper = objectMapper;
     }
 
+    // 요청으로 들어온 로그인 정보 확인 / 인증 시도
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException, IOException, ServletException {
         if(request.getContentType() == null || !request.getContentType().equals(CONTENT_TYPE)  ) {
@@ -55,8 +56,10 @@ public class JsonUsernamePasswordAuthenticationFilter extends AbstractAuthentica
         System.out.println("attemptAuthentication email !!!!!!!!!!!!!!!!!!!!!!!!!!!! : " + username);
         System.out.println("attemptAuthentication password !!!!!!!!!!!!!!!!!!!!!!!!!!!! : " + password);
 
+        // 로그인 정보를 성공적으로 읽어온 경우
         UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(username, password);//principal 과 credentials 전달
 
+        // AuthenticationManager 를 사용하여 사용자의 인증을 시도하고, 인증이 성공하면 해당 인증 객체를 반환
         return this.getAuthenticationManager().authenticate(authRequest);
     }
 

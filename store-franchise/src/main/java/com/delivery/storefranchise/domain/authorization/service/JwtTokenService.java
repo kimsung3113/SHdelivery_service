@@ -107,6 +107,7 @@ public class JwtTokenService implements JwtTokenIfs {
             tokenMap.put(ACCESS_TOKEN_SUBJECT, accessToken);
         }
 
+        // Bearer로 시작하면 Bearer를 없애고 토큰값만 헤더에 남긴다.
         @Override
         public Optional<String> extractAccessToken(HttpServletRequest request) {
             return Optional.ofNullable(request.getHeader(accessHeader)).filter(
@@ -114,6 +115,7 @@ public class JwtTokenService implements JwtTokenIfs {
             ).map(accessToken -> accessToken.replace(BEARER, ""));
         }
 
+        // Bearer로 시작하면 Bearer를 없애고 토큰값만 헤더에 남긴다.
         @Override
         public Optional<String> extractRefreshToken(HttpServletRequest request) {
             return Optional.ofNullable(request.getHeader(refreshHeader)).filter(
@@ -147,6 +149,7 @@ public class JwtTokenService implements JwtTokenIfs {
             response.setHeader(refreshHeader, refreshToken);
         }
 
+        // Token 유효한지 Valid 체크
         @Override
         public boolean isTokenValid(String token) {
             try {
